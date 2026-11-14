@@ -36,7 +36,7 @@ def main():
         ])
         segments.append(segment)
     concat = work / "concat.txt"
-    concat.write_text("".join(f"file '{p.as_posix()}'\\n" for p in segments), encoding="utf-8")
+    concat.write_text("".join(f"file '{p.as_posix()}'\n" for p in segments), encoding="utf-8")
     silent = work / "silent.mp4"
     run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat), "-c", "copy", str(silent)])
     run([
